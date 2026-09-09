@@ -1,0 +1,623 @@
+/* =============================================================
+   GameVault — hoja de estilos
+   Paleta: superficie oscura neutra + acento menta (acciones/nav)
+   + acento magenta (precios y destacados, uso reservado).
+   Tipografía: Chakra Petch (títulos) + Inter (texto/UI).
+   ============================================================= */
+
+:root {
+  --bg: #14151a;
+  --surface: #1d1f27;
+  --surface-alt: #242733;
+  --border: #2a2d3a;
+  --text: #edeff5;
+  --text-muted: #8d93a6;
+  --accent: #2ee6a8;
+  --accent-dim: #1c8f68;
+  --accent-2: #ff4d8d;
+  --danger: #ff5c5c;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Chakra Petch', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+button, input, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ---------- Layout genérico de página con topbar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar .marca {
+  font-size: 1.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.topbar .marca .punto {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.topbar-derecha {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.topbar-derecha .usuario {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pill {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.pill.carrito {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-salir {
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: 0.2s;
+}
+
+.btn-salir:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.contenedor {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+/* ---------- Login ---------- */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2.25rem;
+  position: relative;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.login-card h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.login-card .subtitulo {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+.campo {
+  margin-bottom: 1.1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.campo input, .campo select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  color: var(--text);
+}
+
+.campo input:focus, .campo select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #0b1512;
+  border: none;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #58f0bd;
+}
+
+.btn.secundario {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn.secundario:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn.peligro {
+  background: var(--danger);
+  color: #2a0505;
+}
+
+.credenciales-ayuda {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.credenciales-ayuda code {
+  background: var(--surface-alt);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* ---------- Página de error ---------- */
+.error-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.error-card {
+  max-width: 420px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+}
+
+.error-card .icono {
+  font-size: 2.4rem;
+  color: var(--danger);
+  margin-bottom: 1rem;
+}
+
+.error-card h1 {
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+}
+
+.error-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Dashboard admin ---------- */
+.admin-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 1.6rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.admin-sidebar .marca {
+  margin-bottom: 1.8rem;
+  padding-left: 0.3rem;
+}
+
+.admin-sidebar a {
+  color: var(--text-muted);
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.admin-sidebar a.activo,
+.admin-sidebar a:hover {
+  background: var(--surface-alt);
+  color: var(--accent);
+}
+
+.admin-main {
+  padding: 2.2rem 2.4rem;
+}
+
+.admin-main h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.admin-main .subtitulo {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+}
+
+.stat-card .valor {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.stat-card .etiqueta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+table.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.tabla th, table.tabla td {
+  text-align: left;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+table.tabla th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+table.tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.genero-tag {
+  display: inline-block;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Catálogo cliente ---------- */
+.catalogo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.catalogo-header h1 {
+  font-size: 1.6rem;
+}
+
+.catalogo-header .subtitulo {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.6rem;
+}
+
+.tarjeta-producto {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.tarjeta-producto:hover {
+  border-color: var(--accent);
+}
+
+.tarjeta-producto .portada {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.tarjeta-producto .cuerpo {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.tarjeta-producto h3 {
+  font-size: 1rem;
+}
+
+.tarjeta-producto .precio {
+  color: var(--accent-2);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.tarjeta-producto .existencias {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.tarjeta-producto .existencias.bajo {
+  color: var(--accent-2);
+}
+
+.form-agregar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.form-agregar input[type="number"] {
+  width: 60px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.form-agregar button {
+  flex: 1;
+  background: var(--accent);
+  color: #0b1512;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form-agregar button:hover {
+  background: #58f0bd;
+}
+
+/* ---------- Resumen de compra ---------- */
+.resumen-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.6rem;
+}
+
+.resumen-tabla th, .resumen-tabla td {
+  padding: 0.85rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.94rem;
+}
+
+.resumen-tabla th {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.resumen-tabla .miniatura {
+  width: 46px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.resumen-tabla .nombre-producto {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.resumen-tabla .subtotal {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.cantidad-form {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cantidad-form input {
+  width: 55px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.cantidad-form button, .btn-quitar {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-quitar:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.total-final {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.4rem 0.7rem;
+  border-top: 2px solid var(--accent);
+}
+
+.total-final .etiqueta {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.total-final .monto {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.acciones-resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+}
+
+.confirmacion-banner {
+  background: rgba(46, 230, 168, 0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.6rem;
+  font-weight: 600;
+}

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-reino-cenaria" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3A1259"/>
+      <stop offset="100%" stop-color="#14151A"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg-reino-cenaria)"/>
+  <g><rect x="40" y="40" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 55 55)"/><rect x="85" y="85" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 100 100)"/><rect x="130" y="130" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 145 145)"/><rect x="175" y="175" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 190 190)"/><rect x="220" y="220" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 235 235)"/><rect x="265" y="265" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 280 280)"/><rect x="310" y="310" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 325 325)"/><rect x="355" y="355" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 370 370)"/><rect x="400" y="400" width="30" height="30" fill="#B98CFF" opacity="0.18" transform="rotate(45 415 415)"/></g>
+  <rect x="0" y="0" width="400" height="500" fill="none" stroke="#B98CFF" stroke-width="3" opacity="0.6"/>
+  <text x="200" y="215" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#EDEFF5" text-anchor="middle">REINO</text>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#EDEFF5" text-anchor="middle">DE CENARIA</text>
+  <text x="200" y="460" font-family="Arial, sans-serif" font-weight="600" font-size="16" fill="#B98CFF" text-anchor="middle" letter-spacing="1">RPG</text>
+</svg>
