@@ -368,6 +368,63 @@ button, input, select {
   margin-bottom: 1.2rem;
 }
 
+.form-producto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.2rem;
+}
+
+.form-producto-nuevo .campo {
+  margin-bottom: 1rem;
+}
+
+.form-producto-nuevo input,
+.form-producto-nuevo textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.65rem 0.75rem;
+}
+
+.form-producto-nuevo textarea {
+  resize: vertical;
+}
+
+.form-producto-nuevo input:focus,
+.form-producto-nuevo textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-producto-nuevo input[type="file"] {
+  padding: 0.5rem;
+}
+
+.campo-ancho {
+  grid-column: 1 / -1;
+}
+
+.mensaje {
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.mensaje-exito {
+  background: rgba(46, 230, 168, 0.12);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+}
+
+.mensaje-error {
+  background: rgba(255, 92, 92, 0.12);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
 table.tabla {
   width: 100%;
   border-collapse: collapse;
@@ -388,6 +445,34 @@ table.tabla th {
 
 table.tabla tr:last-child td {
   border-bottom: none;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-edicion input {
+  width: 100%;
+  min-width: 110px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.55rem 0.6rem;
+}
+
+.tabla-edicion input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.tabla-edicion td:first-child {
+  min-width: 250px;
+}
+
+.btn-guardar {
+  width: auto;
+  margin-top: 1.2rem;
 }
 
 .genero-tag {
@@ -423,6 +508,52 @@ table.tabla tr:last-child td {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.6rem;
+}
+
+.admin-catalogo-header {
+  align-items: center;
+}
+
+.btn-catalogo-admin {
+  width: auto;
+}
+
+.admin-grid-productos {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.tarjeta-admin .descripcion-producto {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.estado-inventario {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+
+.estado-inventario strong {
+  font-weight: 600;
+}
+
+.estado-inventario.disponible {
+  color: var(--accent);
+}
+
+.estado-inventario.stock-bajo,
+.stock-bajo-valor {
+  color: var(--accent-2);
+}
+
+.estado-inventario.agotado,
+.agotado-valor {
+  color: var(--danger);
 }
 
 .tarjeta-producto {
@@ -620,4 +751,14 @@ table.tabla tr:last-child td {
   padding: 1rem 1.4rem;
   margin-bottom: 1.6rem;
   font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .form-producto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-ancho {
+    grid-column: auto;
+  }
 }

@@ -2,8 +2,7 @@
 /**
  * config/datos.php
  * -----------------
- * Aquí viven TODOS los datos del sistema, directamente en el código,
- * tal como lo pide el proyecto: sin base de datos.
+ * Aquí viven TODOS los datos del sistema.
  *
  * $usuarios  -> credenciales válidas para iniciar sesión
  * $productos -> catálogo de videojuegos disponible para la vista de Cliente
@@ -28,35 +27,32 @@ $usuarios = [
 // -----------------------------------------------------------------
 // Catálogo de productos (videojuegos)
 // -----------------------------------------------------------------
-// precio      -> MXN
-// existencias -> unidades disponibles (simulado)
-// imagen      -> ruta relativa a la raíz del proyecto
 $productos = [
     1 => [
         'id'          => 1,
-        'nombre'      => 'Need for Speed Most Wanted 2006',
+        'nombre'      => 'Need for Speed Most Wanted (2005)',
         'genero'      => 'Carreras',
         'precio'      => 649.00,
         'existencias' => 18,
-        'imagen'      => 'assets/img/need-for-speed-most-wanted.svg',
+        'imagen'      => 'assets/img/nfsmw_2005.jpeg',
         'descripcion' => 'Carreras callejeras en un mundo abierto con persecuciones policiales intensas.',
     ],
     2 => [
         'id'          => 2,
         'nombre'      => 'Halo Campaign Evolved',
         'genero'      => 'Acción',
-        'precio'      => 899.00,
+        'precio'      => 1899.00,
         'existencias' => 12,
-        'imagen'      => 'assets/img/halo-campaign-evolved.svg',
+        'imagen'      => 'assets/img/HaloCampaingEvolved.jpeg',
         'descripcion' => 'Combate frenetico en primera persona en un hambiente de guerra futurista.',
     ],
     3 => [
         'id'          => 3,
-        'nombre'      => 'Paper Mario',
+        'nombre'      => 'Paper Mario The Origami King',
         'genero'      => 'RPG',
         'precio'      => 749.00,
         'existencias' => 25,
-        'imagen'      => 'assets/img/paper-mario.svg',
+        'imagen'      => 'assets/img/paper_mario.jpg',
         'descripcion' => 'Una colorida y divertida aventura RPG de papel con Mario y sus amigos.',
     ],
     4 => [
@@ -65,7 +61,7 @@ $productos = [
         'genero'      => 'Terror',
         'precio'      => 599.00,
         'existencias' => 8,
-        'imagen'      => 'assets/img/outlast.svg',
+        'imagen'      => 'assets/img/outlast.jpg',
         'descripcion' => 'Sobrevive a al horror puro en primer persona.',
     ],
     5 => [
@@ -74,7 +70,7 @@ $productos = [
         'genero'      => 'Plataformas',
         'precio'      => 399.00,
         'existencias' => 30,
-        'imagen'      => 'assets/img/donkey-kong-country-tropical-freeze.svg',
+        'imagen'      => 'assets/img/donkey.jpg',
         'descripcion' => 'El rey de las plataformas en 2D regresa con su desafio definitivo.',
     ],
     6 => [
@@ -83,16 +79,16 @@ $productos = [
         'genero'      => 'Estrategia',
         'precio'      => 549.00,
         'existencias' => 15,
-        'imagen'      => 'assets/img/pikmin-4.svg',
+        'imagen'      => 'assets/img/pikmin.jpg',
         'descripcion' => 'Estrategia, exploración y encanto en un planeta en miniatura.',
     ],
     7 => [
         'id'          => 7,
         'nombre'      => 'EA Sports FC 27',
         'genero'      => 'Deportes',
-        'precio'      => 699.00,
+        'precio'      => 1899.00,
         'existencias' => 20,
-        'imagen'      => 'assets/img/ea-sports-fc-27.svg',
+        'imagen'      => 'assets/img/fc27.jpg',
         'descripcion' => 'Arma el equipo de tus sueños y compite contra los mejores',
     ],
     8 => [
@@ -101,7 +97,26 @@ $productos = [
         'genero'      => 'Aventura',
         'precio'      => 799.00,
         'existencias' => 10,
-        'imagen'      => 'assets/img/the-legend-of-zelda-tears-of-the-kingdom.svg',
+        'imagen'      => 'assets/img/Zelda.jpg',
         'descripcion' => 'La secuela de uno de los mejores videojuegos de la historia.',
     ],
+    9=> [
+        'id'          => 9,
+        'nombre'      => 'Grand Theft Auto VI (Preventa)',
+        'genero'      => 'Acción, Mundo abierto',
+        'precio'      => 1899.00,
+        'existencias' => 0,
+        'imagen'      => 'assets/img/gta6.jpg',
+        'descripcion' => 'El titulo más esperado de la saga.',
+    ]
 ];
+
+// Si el administrador ha guardado cambios, estos sustituyen los valores iniciales.
+$archivoProductos = __DIR__ . '/productos.json';
+if (is_file($archivoProductos)) {
+    $productosGuardados = json_decode(file_get_contents($archivoProductos), true);
+
+    if (is_array($productosGuardados) && $productosGuardados !== []) {
+        $productos = $productosGuardados;
+    }
+}

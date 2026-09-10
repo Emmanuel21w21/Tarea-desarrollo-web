@@ -2,7 +2,8 @@
 
 Sistema en **PHP puro**, sin base de datos. Usuarios, contraseñas y
 catálogo de productos están definidos directamente en el código
-(`config/datos.php`).
+(`config/datos.php`). El catálogo inicia allí y los cambios realizados
+desde el dashboard se guardan en `config/productos.json`.
 
 ## Estructura del proyecto
 
@@ -13,13 +14,15 @@ tienda-videojuegos/
 ├── error.php              Página de error para credenciales inválidas
 ├── logout.php             Cierra sesión
 ├── config/
-│   └── datos.php          Usuarios y catálogo (hardcodeados)
+│   ├── datos.php          Usuarios y catálogo inicial
+│   └── productos.json     Cambios del catálogo guardados por el administrador
 ├── includes/
 │   ├── auth.php           Login, sesión y protección de rutas por rol
 │   ├── header.php         HTML compartido (head, barra superior)
 │   └── footer.php         Cierre de HTML compartido
 ├── admin/
-│   └── dashboard.php      Panel del administrador + gráfica Chart.js
+│   ├── dashboard.php      Panel, edición y alta de productos
+│   └── catalogo.php       Catálogo exclusivo del administrador
 ├── cliente/
 │   ├── catalogo.php       Catálogo de videojuegos
 │   ├── carrito.php        Maneja agregar/actualizar/eliminar del carrito
