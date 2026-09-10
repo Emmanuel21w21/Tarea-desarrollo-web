@@ -13,7 +13,7 @@
         "nombre": "Halo Campaign Evolved",
         "genero": "Acción",
         "precio": 1899,
-        "existencias": 12,
+        "existencias": 11,
         "imagen": "assets\/img\/HaloCampaingEvolved.jpeg",
         "descripcion": "Combate frenetico en primera persona en un hambiente de guerra futurista."
     },
@@ -22,7 +22,7 @@
         "nombre": "Paper Mario The Origami King",
         "genero": "RPG",
         "precio": 1200,
-        "existencias": 25,
+        "existencias": 18,
         "imagen": "assets\/img\/paper_mario.jpg",
         "descripcion": "Una colorida y divertida aventura RPG de papel con Mario y sus amigos."
     },

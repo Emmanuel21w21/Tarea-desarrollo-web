@@ -15,10 +15,24 @@ require_once __DIR__ . '/../config/datos.php';
 requerir_rol('cliente');
 
 $compraFinalizada = false;
+$errorCompra = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['accion'] ?? '') === 'finalizar') {
-    $_SESSION['carrito'] = [];
-    $compraFinalizada    = true;
+    foreach ($_SESSION['carrito'] as $idProducto => $cantidad) {
+        if (isset($productos[$idProducto])) {
+            $productos[$idProducto]['existencias'] = max(
+                0,
+                (int) $productos[$idProducto]['existencias'] - (int) $cantidad
+            );
+        }
+    }
+
+    if (file_put_contents($archivoProductos, json_encode($productos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX) !== false) {
+        $_SESSION['carrito'] = [];
+        $compraFinalizada = true;
+    } else {
+        $errorCompra = 'No se pudo actualizar el inventario. La compra no fue confirmada.';
+    }
 }
 
 // --- Construir las líneas del carrito y calcular totales (PHP) ---
@@ -51,7 +65,13 @@ require __DIR__ . '/../includes/header.php';
 
     <?php if ($compraFinalizada): ?>
         <div class="confirmacion-banner">
-            ¡Compra simulada con éxito! Gracias por tu pedido. Tu carrito ha sido vaciado.
+            ¡Compra simulada con éxito! Gracias por tu pedido. Las existencias fueron actualizadas y tu carrito ha sido vaciado.
+        </div>
+    <?php endif; ?>
+
+    <?php if ($errorCompra !== ''): ?>
+        <div class="mensaje mensaje-error">
+            <?= htmlspecialchars($errorCompra) ?>
         </div>
     <?php endif; ?>
 
