@@ -50,25 +50,3 @@ php -S localhost:8000
 
 Abre `http://localhost:8000` en tu navegador.
 
-## Cómo publicarlo temporalmente con Ngrok
-
-1. Deja corriendo el servidor de PHP del paso anterior.
-2. En otra terminal, ejecuta:
-   ```bash
-   ngrok http 8000
-   ```
-3. Ngrok te dará una URL pública como `https://xxxx.ngrok-free.app`.
-4. Entra a esa URL desde el navegador (no desde localhost) y ahí toma
-   las capturas de pantalla para el PDF de evidencias.
-
-## Notas técnicas
-
-- El carrito de compra vive en `$_SESSION['carrito']` como un arreglo
-  `id_producto => cantidad`. No se guarda en ningún archivo ni base de
-  datos: al cerrar sesión o reiniciar el servidor se pierde.
-- Las imágenes del catálogo son archivos `.svg` originales generados
-  para este proyecto (no se usan imágenes de terceros ni con derechos
-  reservados).
-- La gráfica del panel de administrador usa **Chart.js** (CDN) y se
-  alimenta con datos reales de existencias, generados con
-  `json_encode()` desde PHP.
